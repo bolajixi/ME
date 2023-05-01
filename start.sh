@@ -1,21 +1,21 @@
 #!/bin/sh
 
-# Install Git, Docker && Docker-compose
-sudo apt-get update -y install git docker.io docker-compose -y 
+# Update package list
+sudo apt-get update
 
-# Install Docker Compose
-sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-docker-compose --version
+# Install Docker && Docker-compose
+sudo apt-get -y install docker.io docker-compose
+
+# Verify that Docker and Docker Compose are installed
 docker --version
-git --version
+docker-compose --version
 
-# Get the Scripts
-git clone https://github.com/bolajixi/ME.git MediaEngine
+# Install latest version of Docker Compose
+# sudo curl -L "https://github.com/docker/compose/releases/download/$(curl --silent https://github.com/docker/compose/releases/latest | grep -Eo '[0-9]+\.[0-9]+\.[0-9]+')/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+# sudo chmod +x /usr/local/bin/docker-compose
+# sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
-# Change into the director
-cd MediaEngine
+# docker-compose --version
 
 # Deploy the application using Docker Compose
 sudo docker-compose -f restream-app.yml up -d 
