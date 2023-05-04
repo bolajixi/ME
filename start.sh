@@ -6,6 +6,12 @@ sudo apt-get update
 # Install Docker && Docker-compose
 sudo apt-get -y install docker.io docker-compose
 
+# Install stunnel to tunnel RTMP to RTMPS
+sudo apt-get install stunnel4
+
+# Configure stunnel
+sudo sed -i 's/ENABLE=0/ENABLE=1/' /etc/default/stunnel4
+
 # Verify that Docker and Docker Compose are installed
 docker --version
 docker-compose --version
