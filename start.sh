@@ -11,6 +11,7 @@ sudo apt-get install stunnel4
 
 # Configure stunnel
 sudo sed -i 's/ENABLE=0/ENABLE=1/' /etc/default/stunnel4
+sudo cp stunnel.conf /etc/stunnel/stunnel.conf
 
 # Verify that Docker and Docker Compose are installed
 docker --version
