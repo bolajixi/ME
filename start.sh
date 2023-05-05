@@ -6,6 +6,10 @@ sudo apt-get update
 # Install Docker && Docker-compose
 sudo apt-get -y install docker.io docker-compose
 
+# Verify that Docker and Docker Compose are installed
+docker --version
+docker-compose --version
+
 # Install stunnel to tunnel RTMP to RTMPS
 sudo apt-get install stunnel4
 
@@ -19,10 +23,6 @@ sudo sed -i '5iENABLED=1' /etc/default/stunnel4
 # Restart stunnel
 sudo systemctl stop stunnel4.service
 sudo systemctl start stunnel4.service
-
-# Verify that Docker and Docker Compose are installed
-docker --version
-docker-compose --version
 
 # Deploy the application using Docker Compose
 sudo docker-compose -f restream-app.yml up -d 
