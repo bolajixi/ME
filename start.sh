@@ -9,6 +9,9 @@ sudo apt-get -y install docker.io docker-compose
 # Install stunnel to tunnel RTMP to RTMPS
 sudo apt-get install stunnel4
 
+# Prepare SSL certificate
+sudo openssl req -new -x509 -days 1000 -nodes -out /etc/ssl/certs/stunnel.pem -keyout /etc/ssl/certs/stunnel.pem
+
 # Configure stunnel
 sudo cp stunnel.conf /etc/stunnel/stunnel.conf
 sudo sed -i '5iENABLED=1' /etc/default/stunnel4
