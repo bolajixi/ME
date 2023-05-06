@@ -23,8 +23,8 @@ sudo sed -i '5iENABLED=1' /etc/default/stunnel4
 # sudo openssl x509 -outform pem -in /etc/ssl/certs/stunnel.pem -out /etc/ssl/certs/stunnel.crt
 # sudo openssl rsa -outform pem -in /etc/ssl/certs/stunnel.pem -out /etc/ssl/certs/stunnel.key
 
-# Restart stunnel service
-# systemctl restart stunnel4.service
+# Start stunnel service
+sudo systemctl start stunnel4
 
 # Deploy the application using Docker Compose
 sudo docker-compose -f restream-app.yml up -d 
