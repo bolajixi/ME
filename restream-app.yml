@@ -2,9 +2,10 @@ version: "3"
 services:
   web:
     image: alfg/nginx-rtmp:latest
-    ports:
-      - "1935:1935"
-      - "8080:80"
+    # port forwarding doesnt work with 'network_mode:host'
+    # ports:
+    #   - "1935:1935"
+    #   - "8080:80"
     environment: 
       - STREAM_KEY_YOUTUBE
       - STREAM_KEY_FACEBOOK
