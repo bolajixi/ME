@@ -10,3 +10,4 @@ services:
       - STREAM_KEY_FACEBOOK
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf.template
+    network_mode: host
